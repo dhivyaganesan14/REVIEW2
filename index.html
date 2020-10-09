@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>COURSE REVIEW PORTAL</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        function checkForm(form)
+        {
+          // validation fails if the input is blank
+          if(form.inputfield.value == "") {
+            alert("Error: Input is empty!");
+            form.inputfield.focus();
+            return false;
+          }
+      
+          // regular expression to match only alphanumeric characters and spaces
+          var re = /^[\w ]+$/;
+      
+          // validation fails if the input doesn't match our regular expression
+          if(!re.test(form.inputfield.value)) {
+            alert("Error: Input contains invalid characters!");
+            form.inputfield.focus();
+            return false;
+          }
+      
+          // validation was successful
+          return true;
+        }
+      
+      </script>
+</head>
+
+
+<body>
+    <!-- ##### Preloader ##### -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+ 
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="header-content h-100 d-flex align-items-center justify-content-between">
+                            <div class="academy-logo">
+                                <a href="index.html"><img src="img/core-img/loco2.jpg" alt="LOGO"></a>
+                            </div>
+                            <button type="button" id="bth" class="btn btn-success btn-lg" onclick="openForm()">LOGIN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- LOGIN FORM-->
+        <div id="loginform" class="modal" role="dialog">
+            <div class="modal-dialog modal-lg" role="content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">SIGN IN</h4>
+                        <button type="button" class="close" onclick="closeForm()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="home.html" method="POST" onsubmit="return checkForm(this)">
+                            <div class="form-row">
+                                
+                                    <label for="firstname" class="col-md-2 col-form-label">FIRST NAME</label>
+                                    <input type='text' placeholder='First Name' id="name1" class='input-line full-width' required></input>
+                                    
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                
+                                <label for="firstname" class="col-md-2 col-form-label">MIDDLE NAME</label>
+                                <input type='text' placeholder='Middle Name' name="name2" class='input-line full-width' required></input>
+                                
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                
+                                <label for="firstname" class="col-md-2 col-form-label">LAST NAME</label>
+                                <input type='text' placeholder='Last Name' id="name3" class='input-line full-width'required></input>
+                                
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                
+                                <label for="firstname" class="col-md-2 col-form-label">EMAIL</label>
+                                <input type='email' placeholder='Email' id="mail" class='input-line full-width' required></input>
+                                
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                
+                                <label for="firstname" class="col-md-2 col-form-label">PASSWORD</label>
+                                <input type='password' placeholder='Password' id="pass"class='input-line full-width' required></input>
+                           </div>
+                        
+                        
+                            <br>
+                            <div class="form-row">
+                                <div class="offset-md-2 col-md-10">
+                                    <button type="submit" id="log-btn" class="btn btn-success mr-1"onsubmit="return validateForm()" method="post" onclick="lof()">LOGIN</button>
+                            
+                                </div>
+    
+                            </div>
+                            </form>
+                            <form action="new.html" method="get" target="_blank">
+                            <br>
+                            <div class="form-row">
+                                <div class="offset-md-2 col-md-10">
+                                    <p>DON'T HAVE AN ACCOUNT ? SIGN UP TO CREATE NEW ACCOUNT</p>
+                                    <button type="submit" class="btn btn-secondary">REGISTER</button>
+                                    <button type="button" class="btn btn-danger" onclick="closeForm()">CANCEL</button>
+                                </div>
+                            </div>
+                        </form>   
+                    </div>      
+                </div>              
+            </div>
+        </div>                    
+
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="index.html">HOME</a></li>
+                                    <li><a href="about-us.html">ABOUT US</a></li>
+                                    <li><a href="course.html">COURSES</a></li>
+                                    <li><a href="review.html">REVIEWS</a></li>
+                                    <li><a href="forum.html">DISCUSSION FORUM</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:+654563325568889"><i class="icon-telephone-2"></i> <span>(+65) 456 332 5568 889</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/hey4.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h4 data-animation="fadeInUp" data-delay="100ms" style="color: rgba(128, 255, 0, 0.863);">Education Is Power</h4>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">WELCOME TO<br>IVY UNIVERSITY</h2>
+                                <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/hey2.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h4 data-animation="fadeInUp" data-delay="100ms" style="color: #0f0d0f;;">Education is an Opportunity</h4>
+                                
+                                <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Top Feature Area Start ##### -->
+    <div class="top-features-area wow fadeInUp" data-wow-delay="300ms">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="features-content">
+                        <div class="row no-gutters">
+                            <!-- Single Top Features -->
+                            <div class="col-12 col-md-4">
+                                <div class="single-top-features d-flex align-items-center justify-content-center">
+                                    <i class="icon-agenda-1"></i>
+                                    <h5>Online Courses</h5>
+                                </div>
+                            </div>
+                            <!-- Single Top Features -->
+                            <div class="col-12 col-md-4">
+                                <div class="single-top-features d-flex align-items-center justify-content-center">
+                                    <i class="icon-assistance"></i>
+                                    <h5>Amazing Teachers</h5>
+                                </div>
+                            </div>
+                            <!-- Single Top Features -->
+                            <div class="col-12 col-md-4">
+                                <div class="single-top-features d-flex align-items-center justify-content-center">
+                                    <i class="icon-telephone-3"></i>
+                                    <h5>Great Support</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Top Feature Area End ##### -->
+
+    <!-- ##### Course Area Start ##### -->
+    <div class="academy-courses-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="popular-course-content">
+                            <h5>ENVIRONMENTAL SCIENCE</h5>
+                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <div class="course-ratings">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p>An Environmental Studies major will be able to recognize the physical, chemical, and biological components of the earth's systems and show how they function. An Environmental Studies major will be able to apply lessons from various courses through field experiences.</p>
+                            <a href="#" class="btn academy-btn btn-sm">See More</a>
+                        </div>
+                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-1.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="popular-course-content">
+                            <h5>DATA SCIENCE</h5>
+                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <div class="course-ratings">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p>Students will demonstrate proficiency with statistical analysis of data. Students will develop the ability to build and assess data-based models. Students will execute statistical analyses with professional statistical software. Students will demonstrate skill in data management.</p>
+                            <a href="#" class="btn academy-btn btn-sm">See More</a>
+                        </div>
+                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-2.jpg);"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="popular-course-content">
+                            <h5>DATA SCIENCE</h5>
+                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <div class="course-ratings">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p>Students will demonstrate proficiency with statistical analysis of data. Students will develop the ability to build and assess data-based models. Students will execute statistical analyses with professional statistical software. Students will demonstrate skill in data management.</p>
+                            <a href="#" class="btn academy-btn btn-sm">See More</a>
+                        </div>
+                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-2.jpg);"></div>
+                    </div>
+                </div>
+                
+                
+                
+                <!-- Single Course Area -->
+                
+                <!-- Single Course Area -->
+               
+            </div>
+        </div>
+    </div>
+    <!-- ##### Course Area End ##### -->
+
+
+    <!-- ##### Partner Area Start ##### -->
+    <div class="partner-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="partners-logo d-flex align-items-center justify-content-between flex-wrap">
+                        <a href="#"><img src="img/clients-img/partner-1.png" alt=""></a>
+                        <a href="#"><img src="img/clients-img/partner-2.png" alt=""></a>
+                        <a href="#"><img src="img/clients-img/partner-3.png" alt=""></a>
+                        <a href="#"><img src="img/clients-img/partner-4.png" alt=""></a>
+                        <a href="#"><img src="img/clients-img/partner-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Partner Area End ##### -->
+
+    <!-- ##### CTA Area Start ##### -->
+    <div class="call-to-action-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content d-flex align-items-center justify-content-between flex-wrap">
+                        <h3>Do you want to enrole at our Academy? Get in touch!</h3>
+                        <a href="#" class="btn academy-btn">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### CTA Area End ##### -->
+
+
+
+
+    <!--FOOTER-->
+    
+        
+    <footer class="footer-area">
+        <div class="main-footer-area section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <a href="#"><img src="img/core-img/logo.jpg" alt=""></a>
+                            </div>
+                            <p> “Live as if you were to die tomorrow. Learn as if you were to live forever” – Mahatma Gandhi</p>
+                            <div class="footer-social-info">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-5">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>Gallery</h6>
+                            </div>
+                            <div class="gallery-list d-flex justify-content-between flex-wrap">
+                                <a href="img/bg-img/gallery1.jpg" class="gallery-img" title="Gallery Image 1"><img src="img/bg-img/gallery1.jpg" alt=""></a>
+                                <a href="img/bg-img/gallery2.jpg" class="gallery-img" title="Gallery Image 2"><img src="img/bg-img/gallery2.jpg" alt=""></a>
+                                <a href="img/bg-img/gallery3.jpg" class="gallery-img" title="Gallery Image 3"><img src="img/bg-img/gallery3.jpg" alt=""></a>
+                                <a href="img/bg-img/gallery4.jpg" class="gallery-img" title="Gallery Image 4"><img src="img/bg-img/gallery4.jpg" alt=""></a>
+                                <a href="img/bg-img/gallery5.jpg" class="gallery-img" title="Gallery Image 5"><img src="img/bg-img/gallery5.jpg" alt=""></a>
+                                <a href="img/bg-img/gallery6.jpg" class="gallery-img" title="Gallery Image 6"><img src="img/bg-img/gallery6.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>Contact</h6>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-placeholder"></i>
+                                <p>4127,University Road,Imaginary State,INDIA</p>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-telephone-1"></i>
+                                <p>Main: 203-808-8613 <br>Office: 203-808-8648</p>
+                            </div>
+                            <div class="single-contact d-flex">
+                                <i class="icon-contract"></i>
+                                <p>ivyuniversity1992@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+    
+  <script>
+      function openForm() {
+  document.getElementById("loginform").style.display="block";
+}
+
+function closeForm() {
+  document.getElementById("loginform").style.display = "none";
+}
+
+
+  </script>
+    
+</body>
+
+</html>
