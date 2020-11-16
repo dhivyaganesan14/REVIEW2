@@ -12,10 +12,10 @@
     <title>COURSE REVIEW PORTAL</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="../static/img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/style.css">
 
 </head>
 
@@ -29,22 +29,24 @@
     <header class="header-area">
 
         <!-- Top Header Area -->
-        <div class="top-header">
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-12 h-100">
-                        <div class="header-content h-100 d-flex align-items-center justify-content-between">
-                            <div class="academy-logo">
-                                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+        <header class="header-area">
+            <div class="top-header">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-12 h-100">
+                            <div class="header-content h-100 d-flex align-items-center">
+                                <div class="academy-logo justify-content-start flex-grow-1">
+                                <a href="index.html"><img src="../static/img/core-img/loco2.jpg"alt="LOGO"></a>
+                                </div>
+                                <button type="submit" id="myButton" class="btn btn-danger">LOGOUT</button>
+    
                             </div>
-                            <div class="login-content">
-                                <a href="#">Register / Login</a>
-                            </div>
+                            
                         </div>
+                            
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- Navbar Area -->
         <div class="academy-main-menu">
@@ -69,11 +71,11 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="home.html">HOME</a></li>
-                                    <li><a href="about-us.html">ABOUT US</a></li>
-                                    <li><a href="course.html">COURSES</a></li>
-                                    <li><a href="review.html">REVIEWS</a></li>
-                                    <li><a href="forum.html">DISCUSSION FORUM</a></li>
+                                    <li><a href="/home">HOME</a></li>
+                                    <li><a href="/about-us">ABOUT US</a></li>
+                                    <li><a href="/course">COURSES</a></li>
+                                    <li><a href="/review">REVIEWS</a></li>
+                                    <li><a href="/forum">DISCUSSION FORUM</a></li>
                                     
                                 </ul>
                             </div>
@@ -83,7 +85,7 @@
                         <!-- Calling Info -->
                         <div class="calling-info">
                             <div class="call-center">
-                                <a href="tel:+654563325568889"><i class="icon-telephone-2"></i> <span>(+65) 456 332 5568 889</span></a>
+                                <a href="tel:8825568889"><i class="icon-telephone-2"></i> <span>882 5568 889</span></a>
                             </div>
                         </div>
                     </nav>
@@ -96,7 +98,7 @@
 
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb-area bg-img" style="background-image: url(../static/img/bg-img/breadcumb.jpg);">
         <div class="bradcumbContent">
             <h2>TOP REVIEWS</h2>
         </div>
@@ -132,13 +134,12 @@
                         
                     </div>
                 </div>
-
-                <!-- Single Top Popular Course -->
+               
                 <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
                         <div class="popular-course-content">
-                            <h5>Advanced HTML5</h5>
-                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <h5>MACHINE LEARNING</h5>
+                            
                             <div class="course-ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -146,19 +147,23 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </div>
-                            <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod.</p>
+                            <p>f you are looking to take your career to another level, Machine Learning can do that for you. 
+                                If you are looking to involve yourself in something 
+                                will make you part of something that is global as well as contemporary relevance,
+                                 Machine Learning can do that for you as well.
+                            </p>
                             <a href="#" class="btn academy-btn btn-sm">See More</a>
                         </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-2.jpg);"></div>
+                        
                     </div>
                 </div>
 
                 <!-- Single Top Popular Course -->
                 <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="600ms">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
                         <div class="popular-course-content">
-                            <h5>Marketing 101</h5>
-                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <h5>CTPS</h5>
+                            
                             <div class="course-ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -166,19 +171,19 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </div>
-                            <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod.</p>
+                            <p>This is one the best course to start for all those people from noncoding .Faculty for this course really awsome.
+                                All the best to all those new comers joining this course.
+                            </p>
                             <a href="#" class="btn academy-btn btn-sm">See More</a>
                         </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-3.jpg);"></div>
+                        
                     </div>
                 </div>
-
-                <!-- Single Top Popular Course -->
                 <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms">
+                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
                         <div class="popular-course-content">
-                            <h5>Business for begginers</h5>
-                            <span>By Simon Smith   |  March 18, 2018</span>
+                            <h5>MACHINE LEARNING</h5>
+                            
                             <div class="course-ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -186,57 +191,16 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </div>
-                            <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod.</p>
+                            <p>f you are looking to take your career to another level, Machine Learning can do that for you. 
+                                If you are looking to involve yourself in something 
+                                will make you part of something that is global as well as contemporary relevance,
+                                 Machine Learning can do that for you as well.
+                            </p>
                             <a href="#" class="btn academy-btn btn-sm">See More</a>
                         </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-4.jpg);"></div>
+                        
                     </div>
                 </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="800ms">
-                        <div class="popular-course-content">
-                            <h5>Marketing 101</h5>
-                            <span>By Simon Smith   |  March 18, 2018</span>
-                            <div class="course-ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod.</p>
-                            <a href="#" class="btn academy-btn btn-sm">See More</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-5.jpg);"></div>
-                    </div>
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="900ms">
-                        <div class="popular-course-content">
-                            <h5>Business for begginers</h5>
-                            <span>By Simon Smith   |  March 18, 2018</span>
-                            <div class="course-ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod.</p>
-                            <a href="#" class="btn academy-btn btn-sm">See More</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(img/bg-img/pc-6.jpg);"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
 
 
 
@@ -259,7 +223,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="footer-widget mb-100">
                             <div class="widget-title">
-                                <a href="#"><img src="img/core-img/logo.jpg" alt=""></a>
+                                <a href="#"><img src="../static/img/core-img/logo.jpg" alt=""></a>
                             </div>
                             <p> “Live as if you were to die tomorrow. Learn as if you were to live forever” – Mahatma Gandhi</p>
                             <div class="footer-social-info">
@@ -277,12 +241,12 @@
                                 <h6>Gallery</h6>
                             </div>
                             <div class="gallery-list d-flex justify-content-between flex-wrap">
-                                <a href="img/bg-img/gallery1.jpg" class="gallery-img" title="Gallery Image 1"><img src="img/bg-img/gallery1.jpg" alt=""></a>
-                                <a href="img/bg-img/gallery2.jpg" class="gallery-img" title="Gallery Image 2"><img src="img/bg-img/gallery2.jpg" alt=""></a>
-                                <a href="img/bg-img/gallery3.jpg" class="gallery-img" title="Gallery Image 3"><img src="img/bg-img/gallery3.jpg" alt=""></a>
-                                <a href="img/bg-img/gallery4.jpg" class="gallery-img" title="Gallery Image 4"><img src="img/bg-img/gallery4.jpg" alt=""></a>
-                                <a href="img/bg-img/gallery5.jpg" class="gallery-img" title="Gallery Image 5"><img src="img/bg-img/gallery5.jpg" alt=""></a>
-                                <a href="img/bg-img/gallery6.jpg" class="gallery-img" title="Gallery Image 6"><img src="img/bg-img/gallery6.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery1.jpg" class="gallery-img" title="Gallery Image 1"><img src="../static/img/bg-img/gallery1.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery2.jpg" class="gallery-img" title="Gallery Image 2"><img src="../static/img/bg-img/gallery2.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery3.jpg" class="gallery-img" title="Gallery Image 3"><img src="../static/img/bg-img/gallery3.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery4.jpg" class="gallery-img" title="Gallery Image 4"><img src="../static/img/bg-img/gallery4.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery5.jpg" class="gallery-img" title="Gallery Image 5"><img src="../static/img/bg-img/gallery5.jpg" alt=""></a>
+                                <a href="../static/img/bg-img/gallery6.jpg" class="gallery-img" title="Gallery Image 6"><img src="../static/img/bg-img/gallery6.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -309,21 +273,26 @@
                 </div>
             </div>
         </div>
-    </footer>
         
     <!-- ##### Footer Area Start ##### -->
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../static/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="../static/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="../static/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="../static/js/active.js"></script>
+    <script>
+        document.getElementById("myButton").onclick = function () {
+             location.href = "/index";
+        }
+
+    </script>
 </body>
 
 </html>
