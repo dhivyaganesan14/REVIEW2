@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request,flash
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 app = Flask(__name__)
@@ -6,6 +6,7 @@ app.config['MYSQL_USER'] = 'kalyani'
 app.config['MYSQL_PASSWORD'] = 'Kalyani96!'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_DB'] = 'flaskapp'
+app.secret_key = 'many random bytes'
 mysql= MySQL(app)
 
 def registerStudent(form):
@@ -23,9 +24,15 @@ def registerStudent(form):
     Ph_no=studentdetails['num'] 
     Email=studentdetails['email']
     cur=mysql.connection.cursor()
-    cur.execute("INSERT INTO student(Roll_No,First_Name,Middle_Name,Last_Name,Age,Year,Department,Sem_No,date,Password,Ph_no,Email) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(Roll_No,First_Name,Middle_Name,Last_Name,Age,Year,Department,Sem_No,date,Password,Ph_no,Email))
-    mysql.connection.commit()
-    cur.close()
+    cur.execute("SELECT * from student WHERE Email=%s",[Email])
+    search = cur.fetchall()
+    if search:
+        return render_template('index.html')
+    else:
+        cur.execute("INSERT INTO student(Roll_No,First_Name,Middle_Name,Last_Name,Age,Year,Department,Sem_No,date,Password,Ph_no,Email) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(Roll_No,First_Name,Middle_Name,Last_Name,Age,Year,Department,Sem_No,date,Password,Ph_no,Email))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('home.html') 
     return render_template('index.html',name=First_Name)  
 
 
@@ -42,10 +49,17 @@ def registerFaculty(form):
     course_name=facultydetails['coun']
     course_id=facultydetails['couid']
     cur=mysql.connection.cursor()
-    cur.execute("INSERT INTO faculty(First_Name,Middle_Name,Last_Name,Password,Email,faculty_id,course_name,course_id,Department) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",(First_Name,Middle_Name,Last_Name,Password,Email,faculty_id,course_name,course_id,Department))
-    mysql.connection.commit()
-    cur.close()
-    return render_template('index.html',name=First_Name) 
+    cur.execute("SELECT * from faculty WHERE Email=%s",[Email])
+    search = cur.fetchall()
+    if search:
+        cur.execute("INSERT INTO faculty(First_Name,Middle_Name,Last_Name,Password,Email,faculty_id,course_name,course_id,Department) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",(First_Name,Middle_Name,Last_Name,Password,Email,faculty_id,course_name,course_id,Department))
+        return render_template('index.html')
+    else:
+       
+        mysql.connection.commit()
+        cur.close()
+        return render_template('faculty.html') 
+    return render_template('index.html')
 
         
    
@@ -59,12 +73,11 @@ def registerAdmin(form):
     Password =admindetails['pass']
     Email=str(admindetails['email'])
     mod_id=admindetails['modid']
-    cur=mysql.connection.cursor()
-    
-    query = "SELECT * from admin WHERE Email=dhivya123@gmail.com"
-    # query = "SELECT * from admin WHERE Email=dhivya123@gmail.com"    
-    search=cur.execute(query)
+    cur=mysql.connection.cursor()        
+    cur.execute("SELECT * from admin WHERE Email=%s",[Email])
+    search = cur.fetchall()
     if search:
+        
         return render_template('index.html')
     else:
         cur.execute("INSERT INTO admin(First_Name,Middle_Name,Last_Name,Password,Email,mod_id) VALUES(%s,%s,%s,%s,%s,%s)",(First_Name,Middle_Name,Last_Name,Password,Email,mod_id))
@@ -72,24 +85,11 @@ def registerAdmin(form):
         cur.close()
         return render_template('home.html') 
     return render_template('index.html')
-
-"""
-    if user = flaskapp.query.filter(flaskapp.Email==Email).first(): 
-        return render_template('index.html')
-    else:
-        cur=mysql.connection.cursor()
-        cur.execute("INSERT INTO admin(First_Name,Middle_Name,Last_Name,Password,Email,mod_id) VALUES(%s,%s,%s,%s,%s,%s)",(First_Name,Middle_Name,Last_Name,Password,Email,mod_id))
-        mysql.connection.commit()
-        cur.close()
-        return render_template('home.html') 
-    return render_template('index.html')
-    
- """   
     
     #registration logic
 
 @app.route('/', methods=['GET','POST'])
-def login():
+def indexFn():
     #msg =''
     if request.method == 'POST':
         #fetch form data
@@ -98,32 +98,6 @@ def login():
         idlog=userDestails['idlog']
         mail=userDestails['email']
         password=userDestails['pass']
-        # Check if account exists using MySQL
-       # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        #cursor.execute('SELECT * FROM ADMIN WHERE Email = %(Email)s AND Password = %(Password)d')
-        # Fetch one record and return result
-        #account = cursor.fetchone()
-        # If account exists in accounts table in out database
-       # if account:
-            #userDestails['fname'] = account['fname']
-         #   mail=account['Email']
-        #    password=account['Password']
-            # Redirect to home page
-          #  return 'Logged in successfully!'
-        #else:
-            # Account doesnt exist or username/password incorrect
-         #   msg = 'Incorrect username/password!'
-
-          
-       # pwCheck = .execute("SELECT password FROM users WHERE email = :mail", {"uname": mail}).fetchone()
-
-        #if pwCheck == password:
-        #   return render_template("home.html")
-        #else:
-         #   return render_template("index.html", logintry="Login Failure")
-   
-   # else:
-    #    return render_template("login.html")
         cur=mysql.connection.cursor()
         cur.execute("INSERT INTO login(fname,idlog,mail,password) VALUES(%s, %s,%s,%s)",(fname,idlog,mail,password))
         mysql.connection.commit()
@@ -131,6 +105,55 @@ def login():
         return render_template('home.html')
     return render_template('index.html')   
 
+@app.route('/login', methods=['POST'])
+def login():
+    #msg =''
+    if request.method == 'POST' and 'email' in request.form and 'pass' in request.form:
+        
+        useremail = request.form['email']
+        userpassword = request.form['pass']
+        check=request.form['user']
+        
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        if check=='student':
+            cursor.execute('SELECT * FROM student')
+            flag=cursor.fetchall()
+            email_ids=[]
+            passwd=[]
+            for i in flag:
+                email_ids.append(i['Email'])
+                passwd.append(i['Password'])
+            if useremail in email_ids and userpassword in passwd:                
+                return render_template('home.html')
+            else:
+                return render_template('index.html')
+        elif check=='faculty':
+            cursor.execute('SELECT * FROM faculty')
+            flag2=cursor.fetchall()
+            email2_ids=[]
+            passwd2=[]
+            for i in flag2:
+                email2_ids.append(i['Email'])
+                passwd2.append(i['Password'])
+            if useremail in email2_ids and userpassword in passwd2:                
+                return render_template('faculty.html')
+            else:
+                return render_template('index.html')
+        elif check=='admin':
+            cursor.execute('SELECT * FROM admin')
+            flag3=cursor.fetchall()
+            email3_ids=[]
+            passwd3=[]
+            for i in flag3:
+                email3_ids.append(i['Email'])
+                passwd3.append(i['Password'])
+            if useremail in email3_ids and userpassword in passwd3:                
+                return render_template('home.html')
+            else:
+                return render_template('index.html')
+        
+      
+     
     
 
 
@@ -153,23 +176,38 @@ def question():
     if request.method == 'POST':
       
         Questiondetails=request.form
+        unique_id=Questiondetails['unique']
         course_id=Questiondetails['question']
         doubt =Questiondetails['Input']
         cur=mysql.connection.cursor()
-        cur.execute("INSERT INTO doubt(course_id,doubt) VALUES(%s, %s)",(course_id,doubt))
+        cur.execute("INSERT INTO doubt(unique_id,course_id,doubt) VALUES(%s,%s, %s)",(unique_id,course_id,doubt))
         mysql.connection.commit()
         cur.close()
-    return render_template('forum.html', first=course_id,second=doubt)
+        cur=mysql.connection.cursor()
+        cur.execute("SELECT * FROM doubt")
+        questions = cur.fetchall()
+        cur.execute("SELECT * FROM answers")
+        answers = cur.fetchall()
+        return render_template('forum.html',questions=questions, answers=answers)
     
-
-
-
-
-    
+@app.route('/answer', methods=['GET','POST'])
+def answer():
+    if request.method == 'POST':
       
-
-
-
+        Answerdetails=request.form
+        diff_id=Answerdetails['uni']
+        answer=Answerdetails['answer']
+        cur=mysql.connection.cursor()
+        cur.execute("INSERT INTO answers(diff_id,answer) VALUES(%s,%s)",(diff_id,answer))
+        mysql.connection.commit()
+        cur.close()
+        cur=mysql.connection.cursor()
+        cur.execute("SELECT * FROM doubt")
+        questions = cur.fetchall()
+        cur.execute("SELECT * FROM answers")
+        answers = cur.fetchall()
+        return render_template('forum.html',questions=questions, answers=answers)
+    
 @app.route('/about-us', methods=['GET'])
 def about_us():
     return render_template('about-us.html')
@@ -184,7 +222,12 @@ def course():
 
 @app.route('/forum', methods=['GET'])
 def forum():
-    return render_template('forum.html')
+    cur=mysql.connection.cursor()
+    cur.execute("SELECT * FROM doubt")
+    questions = cur.fetchall()
+    cur.execute("SELECT * FROM answers")
+    answers = cur.fetchall()
+    return render_template('forum.html',questions=questions, answers=answers)
 
 @app.route('/review', methods=['GET'])
 def review():
@@ -193,7 +236,11 @@ def review():
 @app.route('/index', methods=['GET'])
 def index():
     return render_template('index.html')
+@app.route('/faculty', methods=['GET'])
+def faculty():
+    return render_template('faculty.html')
 
 if __name__=="__main__":
+    app.secret_key='12345'
     app.run('127.0.0.1', 5000, debug=True)
 
