@@ -29,6 +29,7 @@
                             <div class="academy-logo justify-content-start flex-grow-1">
                             <a href="index.html"><img src="../static/img/core-img/loco2.jpg"alt="LOGO"></a>
                             </div>
+                           
                             <button type="button" id="bth" class="btn btn-info mr-2" onclick="openForm()">LOGIN</button>
                             <button type="button" id="bth" class="btn btn-dark mr-2" onclick="openForm1()">REGISTER</button>
     
@@ -49,7 +50,7 @@
                         <button type="button" class="close" onclick="closeForm()">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST" onsubmit="return checkForm(this)">
+                        <form action="/login" method="POST">
                             <div class="form-row">
                                 
                                     <label for="firstname" class="col-md-2 col-form-label">FIRST NAME</label>
@@ -86,6 +87,15 @@
                                 </div>
     
                             </div>
+
+                            <div class="form-row">
+                                <input type="radio" id="user" name="user" value="student">
+                                <label for="student">Student</label><br>
+                                <input type="radio" id="user" name="user" value="faculty">
+                                <label for="faculty">Faculty</label><br>
+                                <input type="radio" id="user" name="user" value="admin">
+                                <label for="other">Admin</label>
+                            </div>                                                    
                         </form>
                             
                     </div>      
@@ -410,28 +420,11 @@
                         </div>
 
                         <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- close btn -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="/home">HOME</a></li>
-                                    <li><a href="/about-us">ABOUT US</a></li>
-                                    <li><a href="/course">COURSES</a></li>
-                                    <li><a href="/review">REVIEWS</a></li>
-                                    <li><a href="/forum">DISCUSSION FORUM</a></li>
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
+                       <h4 style="color: black; text-align: center;">MAIN PAGE</h4>
 
                         <!-- Calling Info -->
                         <div class="calling-info">
+                            
                             <div class="call-center">
                                 <a href="tel:8825568889"><i class="icon-telephone-2"></i> <span>882 5568 889</span></a>
                             </div>
@@ -579,23 +572,6 @@
     </div>
     <!-- ##### Course Area End ##### -->
 
-
-    <!-- ##### Partner Area Start ##### -->
-    <div class="partner-area section-padding-0-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="partners-logo d-flex align-items-center justify-content-between flex-wrap">
-                        <a href="#"><img src="../static/img/clients-img/partner-1.png" alt=""></a>
-                        <a href="#"><img src="../static/img/clients-img/partner-2.png" alt=""></a>
-                        <a href="#"><img src="../static/img/clients-img/partner-3.png" alt=""></a>
-                        <a href="#"><img src="../static/img/clients-img/partner-4.png" alt=""></a>
-                        <a href="#"><img src="../static/img/clients-img/partner-5.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ##### Partner Area End ##### -->
 
     <!-- ##### CTA Area Start ##### -->
@@ -725,9 +701,9 @@ function closeForm5() {
 function logout() {
   document.getElementById("adminform").style.display="none";
 }
-
-
 </script>
+
+
     
 </body>
 

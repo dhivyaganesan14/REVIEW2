@@ -69,10 +69,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="/home">HOME</a></li>
-                                    <li><a href="/about-us">ABOUT US</a></li>
-                                    <li><a href="/course">COURSES</a></li>
-                                    <li><a href="/review">REVIEWS</a></li>
+                                  
+                
                                     <li><a href="/forum">DISCUSSION FORUM</a></li>
                                     
                                 </ul>
@@ -119,100 +117,66 @@
                     </div>
                 
                 <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Business English</h5>
-                            <p>WHAT BACKGROUND KNOWLEDGE IS NECESSARY?</p>
-                            <p>ANSWER:This specialization was designed for business professionals and executives with an intermediate level of English.
-                                 This means you can hold basic conversations in English, you can read, understand, and write simple emails, and you can understand some of what you hear in the English language news.
-                                 More specifically, your linguistic competence can be measured by your scores on the TOEFL iBT or IELTS exams. 
-                               
-                            </p>
-                            
-                        </div>
-                    </div>
-                        
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="popular-course-content">
-                            <h5>Advanced HTML5</h5>
-                            
-                            <p>How to optimize website assets?
-
-                                Answer: We need to understand some basic optimization rules, in order to optimize website assets. 
-                                Initially, we should decrease the download size and make fewer http requests.</p>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="popular-course-content">
-                            <h5>Advanced HTML5</h5>
-                            <p> What are the prerequisites for data mining?
-                                Big data processing frameworks: Hadoop, Storm, Samza, Spark, Flink. ...
-                                 Operating System: Linux. ...
-                                  Database knowledge: Relational Databases & Non-Relational Databases
-                            </p>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="popular-course-content">
-                            <h5>Business Mathematics</h5>
-                           
-                            
-                            <p>How is maths used in business?
-                               Answer: Business mathematics are mathematics used by commercial enterprises to record and manage business operations.
-                                 Commercial organizations use mathematics in accounting, inventory management, marketing, sales forecasting, 
-                                 and financial analysis.</p>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                </div>
                 
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="popular-course-content">
-                             <h5>{{first}}</h5>
-                             <p>{{second}} </p>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                </div>
+                
+                {% for question in questions %}
+            <div class="col-12 col-lg-6">
+                <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="popular-course-content">
+                         <p>{{question[0]}}</p>
+                         <h5><div style="color:chocolate">Subject: </div>{{question[1]}}</h5>
+                         <h5><div style="color:brown">Question: </div>{{question[2]}}</h5>                        
+                    </div>                        
+                </div>                    
+            </div>
+                {% endfor %}
             </div>
 
-               
+            <div class="top-popular-courses-area mt-50 section-padding-100-70">
+                <h5>ANSWERS</h5> <br/>
+                <div class="container">
+            
+                    <div class="row">
+            
+            {% for answer in answers %}
+    <div class="col-12 col-lg-6">
+        <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
+            <div class="popular-course-content">
+                 <p>{{answer[0]}}</p>
+                 <h5><div style="color:olive">Answer: </div>{{answer[1]}}</h5>                                         
+            </div>                        
+        </div>                    
+    </div>
+        {% endfor %}</div>
+        </div>
+        </div>
+        
                     
             
                   
                 
-                </form>
+                
                 <form action="/question" method="POST">
-                <input type="question" class="form-control" id="question" name="question" aria-describedby="Help" placeholder="Enter The Subject">
-                <input type="question" class="form-control" id="Input" name="Input"  aria-describedby="Help" placeholder="Enter The Question">
+                <input type="text" class="form-control" id="unique" name="unique" placeholder="Enter The unique value">
+                <input type="text" class="form-control" id="question" name="question" placeholder="Enter The Subject">
+                <input type="text" class="form-control" id="Input" name="Input"  placeholder="Enter The Question">
                 <div>
                     <button type="submit" id="check" class="btn btn-default btn-lg mt-2">POST</button>
                 </div>
-            
+                <br>
+                <br>
                     
                 </form>
-        
-                    <!-- Single Top Popular Course -->
-               
-            
+                <form action="/answer" method="POST">
+                    <input type="text" class="form-control" id="question" name="uni" placeholder="Enter The Unique value">
+                    <input type="text" class="form-control" id="question" name="answer" placeholder="Enter The Answer">
+    
+                    <div>
+                        <button type="submit" id="check" class="btn btn-default btn-lg mt-2">ANSWER</button>
+                    </div>
+                
+                        
+                    </form>            
         </div>
     </div>
 </body>
@@ -311,14 +275,7 @@
         }
 
     </script>
-    <script>
-        function question() {
-        var x = document.getElementById("Input").value;
-        document.getElementById("demo").innerHTML = x;
-        var y = document.getElementById("question").value;
-        document.getElementById("fun").innerHTML = y;
-}
-    </script>
+    
     
 </body>
 
